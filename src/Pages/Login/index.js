@@ -19,11 +19,12 @@ const Login = () => {
     }
 
     const postLogin = () => {
-        axios.post(`http://localhost:8080/auth/login`, userData)
+        axios.post(`https://examen-erik.elflacoradiadores.de/auth/login`, userData)
         .then(res => {
             if(res.data){
                 console.log(res.data)
                 window.localStorage.setItem('token', res.data.token)
+                console.log(res)
                 navigate('/home')
             }
         })

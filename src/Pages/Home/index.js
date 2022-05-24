@@ -7,10 +7,11 @@ const Home = () => {
     
     useEffect(() => {
         const token = window.localStorage.getItem('token')
+        const user = window.localStorage.getItem('user')
 
         const redirectFunction = () => navigate('/')
     
-        if(!token){
+        if(!token && !user){
             redirectFunction()
         }
         
@@ -18,6 +19,7 @@ const Home = () => {
 
     const logOut = () => {
         window.localStorage.removeItem('token')
+        window.localStorage.removeItem('user')
         navigate('/')
     }
 

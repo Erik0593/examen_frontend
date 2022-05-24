@@ -23,11 +23,12 @@ const Register = () => {
     }
 
     const saveHandlerUser = async () => {
-        axios.post(`http://localhost:8080/user`, userData)
+        axios.post(`https://examen-erik.elflacoradiadores.de/user`, userData)
             .then(res => {
                 if (res.status === 200) {
                     setSuccess(true)
                     setTimeout(() => navigate("/home"), 2000)
+                    window.localStorage.setItem('user',res.data.New_user.email)
                 }
             })
             .catch(err => {
